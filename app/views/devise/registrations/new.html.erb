@@ -1,0 +1,54 @@
+
+<div id='sign_up_form' class='col-md-8 offset-md-2'>
+  <br/>
+  <h2>Sign up</h2>
+  <hr>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-social btn-facebook col-md-8 offset-md-0", id: "login_with_facebook" do %>
+      <span class="fa fa-facebook"></span> Sign in with Facebook
+    <% end %>
+    
+    <div id = 'or_spacer'> OR </div>
+
+    <div class="field">
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control col-md-8 offset-md-2', required: "true" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: 'form-control col-md-8 offset-md-2', required: "true" %>
+    </div>
+
+    <div id="password_section">
+
+      <% if f.object.password_required? %>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control col-md-8 offset-md-2', required: "true" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control col-md-8 offset-md-2', required: "true" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="actions submit_action">
+      <%= f.submit "Sign up", class: 'btn btn-success col-md-8 offset-md-0' %>
+    </div>
+  <% end %>
+
+  <div id="sign_up_links">
+    Already have an Account? <%= link_to "Log in", new_session_path(resource_name) %>
+  </div>
+
+  <br/>
+</div>

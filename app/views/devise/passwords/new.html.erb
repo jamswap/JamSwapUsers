@@ -1,0 +1,24 @@
+<div id='forget_form' class='col-md-8 offset-md-2'>
+  <br/>
+  <h2>Forgot your password?</h2>
+  <hr>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control col-md-8 offset-md-2', required: "true" %>
+    </div>
+
+    <div class="actions submit_action">
+      <%= f.submit "Send me reset password instructions", class: 'btn btn-success col-md-8 offset-md-0'  %>
+    </div>
+  <% end %>
+
+  <div id="sign_up_links">
+    Already have an Account? <%= link_to "Log in", new_session_path(resource_name) %>
+    <br/>
+    Don't have an Account? <%= link_to "Sign up", new_registration_path(resource_name) %>
+  </div>
+</div>

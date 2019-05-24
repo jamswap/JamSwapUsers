@@ -1,0 +1,25 @@
+body {
+  width: 100%;
+  height: 100%;
+}
+#main-body{
+  padding-right: 2%;
+  padding-left: 2%;
+  //text-align: center;
+  float:middle;
+}
+#login_with_facebook{
+  text-align: center;
+  color:white;
+}
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+a:link, a:active, a:visited,a:hover {
+	color : #000000;
+	text-decoration : none !important;
+  }
